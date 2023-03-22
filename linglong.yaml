@@ -1,0 +1,32 @@
+package:
+  id: bzip2
+  name: bzip2
+  version: 1.0.6
+  kind: lib
+  description: |
+    bzip2.
+
+
+base:
+  id: org.deepin.base
+  version: 23.0.0
+
+source:
+  kind: git
+  url: "http://github.com/deepin-community/bzip2"
+  version: security/v15.5/1.0.6
+  commit: cef245f0f851f61fb0f07236483e03b07eccfa6b
+  patch:
+    - deepin-CVE-2019-12900.patch
+    - 10-bzip2.1.patch
+    - 20-legacy.patch
+    - 30-bzip2-harden.patch
+    - bzip2recover-CVE-2016-3189.patch
+
+build:
+  kind: manual
+  manual:
+    configure: |
+      #exec bash
+      make -j6
+      make -j PREFIX=${PREFIX} install

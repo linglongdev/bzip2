@@ -13,15 +13,13 @@ base:
 
 source:
   kind: git
-  url: "http://github.com/deepin-community/bzip2"
-  version: security/v15.5/1.0.6
-  commit: cef245f0f851f61fb0f07236483e03b07eccfa6b
+  url: "https://github.com/deepin-community/bzip2"
+  version: 1.0.8
+  commit: 747503da4250579c3db9febd397e1552ea71909e
   patch:
-    - deepin-CVE-2019-12900.patch
     - 10-bzip2.1.patch
     - 20-legacy.patch
-    - 30-bzip2-harden.patch
-    - bzip2recover-CVE-2016-3189.patch
+    - 40-bzdiff-l.patch
 
 build:
   kind: manual
